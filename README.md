@@ -20,5 +20,6 @@ get sent via email or text message.
 
 
 # WBS graph:
+![wbs](images/wbs.png)
 
 # Application Interface Sketch:
