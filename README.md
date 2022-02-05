@@ -1,7 +1,6 @@
 # Group 4 Project Overview
 
-- Project Description : A web application that tells past and expected weather. It also let the user subscribe daily weather updates and updates will
-get sent via email or text message.
+- Project Description : A web application that tells a city's weather in 3 ways: Minute, hourly and daily and also shows its related news.
 
 - SDLC : Prototyping
 
@@ -13,13 +12,18 @@ get sent via email or text message.
 		b) hourly forecast
 		c) daily forecast 
 
-	2. Current Weather Data: 
-		a) access current weather worldwide
-		b) comparing weather in different
-		c) showing nearby cities’ weather 
-
+     2. google map api: https://developers.google.com/maps/documentation/geocoding/overview
+        a) displays city (default:vancouver)
+     3. News api: 
+			https://newsapi.org/v2/everything?q=tesla&from=2022-01-05&sortBy=publishedAt&apiKey=API_KEY from newapi.org
+        a) displays its keyword(from the google map, default:vancouver)
+        b) recent news
+        c) oldest news from the past 7 days. 
 
 # WBS graph:
 ![wbs](images/wbs.png)
 
 # Application Interface Sketch:
+![interface](https://user-images.githubusercontent.com/97766011/152639480-cc9753cb-88a0-4b05-8055-0a7da8c1b165.png)
+
+
