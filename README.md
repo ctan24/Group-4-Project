@@ -20,11 +20,11 @@ Weatherly is a web application that suits all your needs regarding the weather. 
         c) oldest news from the past 7 days. 
 
 # WBS graph:
-![wbs](images/wbs.png)
+![wbs](docs/images/wbs.png)
 
 # Application Interface Sketch:
-![interface](images/Homepage.png)
-![interface](images/Weathermap.png)
-![interface](images/Weathernews.png)
+![interface](docs/images/Homepage.png)
+![interface](docs/images/Weathermap.png)
+![interface](docs/images/Weathernews.png)
 
 
