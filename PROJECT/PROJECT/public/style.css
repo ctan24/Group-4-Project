@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&family=Sora:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&family=Lato:ital,wght@0,400;0,700;0,900;1,400&display=swap');
+
+body {
+    background-color: #FAFAFA;
+}
+
+h2 {
+    font-family: Lato;
+}
+
+h1 {
+    font-family: Sora;
+}
+
+header {
+    display: flex;
+    margin: 3em 3em 0 3em;
+}
+
+.tabs {
+    margin-left: auto;
+}
+
+header h1 {
+    padding-top: 0.1em;
+    font-size: 70px;
+}
+
+header h2 {
+    font-size: 35px;
+    padding: 1.2em 0.7em 0.7em 0.7em;
+}
+
+header img {
+    width: 150px;
+    height: 100px;
+    padding-left: 2em;
+}
+
+/* main content */
+
+
+
+.place {
+    font-family: Sora;
+    font-weight: 500;
+    font-size: 30px;
+}
+
+
+
+.current-weather p {
+    font-family: Sora;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.current-weather img {
+    width: 100px;
+    height: 100px;
+}
+
+.weather-content {
+    display: flex;
+    justify-content: space-around;
+    padding: 5em;
+}
+
+.hourly-weather {
+    display: flex;
+    padding: 1em;
+}
+
+.hourly-weather div, .daily-weather div, .current-weather {
+    border: solid black 1px;
+    padding: 1em;
+    margin: 1em;
+}
+
+.hourly-weather div p, .hourly-weather div h3, .daily-weather div p, .daily-weather div h4 {
+    text-align: center;
+    font-family: Lato;
+    font-weight: 600;
+}
+
+.hourly-weather div p, .daily-weather div p {
+    font-size: 20px;
+}
+
+.daily-weather div img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.weather-content h2 {
+    padding-left: 1em;
+    font-family: Sora;
+    font-weight: 600;
+}
+
+.search {
+    padding-left: 8.5em;
+}
+
+main {
+    margin: 10em;
+}
+
+.current-weather div {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.current-weather h2 {
+    padding-top: 1em;
+}

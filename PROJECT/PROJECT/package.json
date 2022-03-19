@@ -1,0 +1,28 @@
+{
+    "name": "weatherly",
+    "version": "1.0.0",
+    "description": "___        ______     ____ _                 _  ___           / \\ \\      / / ___|   / ___| | ___  _   _  __| |/ _ \\         / _ \\ \\ /\\ / /\\___ \\  | |   | |/ _ \\| | | |/ _` | (_) |       / ___ \\ V  V /  ___) | | |___| | (_) | |_| | (_| |\\__, |      /_/   \\_\\_/\\_/  |____/   \\____|_|\\___/ \\__,_|\\__,_|  /_/   -----------------------------------------------------------------",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "nodemon script.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "axios": "^0.26.1",
+        "dotenv": "^16.0.0",
+        "ejs": "^3.1.6",
+        "express": "^4.17.3",
+        "node.js": "^0.0.1-security",
+        "request": "^2.81.0",
+        "webpack": "^5.70.0",
+        "webpack-cli": "^4.9.2"
+    },
+    "devDependencies": {
+        "css-loader": "^6.7.1",
+        "nodemon": "^2.0.13",
+        "style-loader": "^3.3.1"
+    }
+}
