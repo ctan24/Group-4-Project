@@ -8,3 +8,10 @@
 
 ** note that you might not have access to api keys due to .gitignore 
 check discord for the api keys.
+
+
+for tests
+6. npm i -D jest
+7. npx jest
+**note ctrl + C to force stop
+

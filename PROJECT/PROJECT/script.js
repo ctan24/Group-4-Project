@@ -26,6 +26,7 @@ app.get('/', function(req, res) {
 
     // It shall not fetch and display any data in the index page
     res.render('index', { weather: null, error: null });
+    res.sendStatus(200);
 });
 
 // On a post request, the app shall data from OpenWeatherMap using the given arguments
