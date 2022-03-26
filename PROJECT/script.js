@@ -4,6 +4,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const axios = require('axios');
 const NewsAPI = require('newsapi');
+const port = process.env.PORT || 8080;
 
 // Configure dotenv package
 
@@ -245,7 +246,7 @@ function formatAMPM(date) {
     return strTime;
 }   
 
-const server = app.listen(8080, function() {
+const server = app.listen(port, function() {
     console.log('Weatherly listening on port 8080!');
 });
 
