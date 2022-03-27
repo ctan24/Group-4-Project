@@ -27,9 +27,11 @@ jobs:
         node-version: ${{ matrix.node-version }}
         
     - name: Install
+      working-directory: ./PROJECT
       run: npm install
       
     - name: Test
+      working-directory: ./PROJECT
       run: npm test
       
     - name: Deploy to Heroku
