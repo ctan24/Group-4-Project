@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {
         "test": "jest --detectOpenHandles",
-        "dev": "nodemon script.js"
+        "dev": "nodemon script.js",
         "start": "node script.js"
     },
     "keywords": [],
