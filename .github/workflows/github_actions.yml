@@ -34,3 +34,12 @@ jobs:
       working-directory: ./PROJECT
       run: npm test
       
+    - name: Add remote origin
+      if: github.ref == 'ref/heads/master' && job.status == 'success' #only run when test is passed
+      run:
+        git remote add heroku https${{ secrets.HEROKU_API_KEY }}@git.heroku.com/group4-weatherly-app.git
+        
+    - name: Deploy to Heroku
+      run:
+        git push heroku HEAD:master -f
+      
