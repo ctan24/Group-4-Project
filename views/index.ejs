@@ -35,6 +35,10 @@
                     <p class="place">
                         <%= place %>
                     </p>
+                    <p id="current_date"></p>
+                    <script>
+                    document.getElementById("current_date").innerHTML = Date();
+                    </script>
                 </div>
             </div>
             <div class="weather-content">
@@ -133,45 +137,64 @@
                 <% } %>
             </div>
         </div>
+
         <% if(response !== null){ %>
-        <div>
-            <h2>News Container</h2>
-            <div>
+
+        <h2>News Container</h2>
+
+        <div class="news">
+            <div class="yesterday">
                 <h3>Yesterday</h3>
-                <% if(news && news.yesterday && news.yesterday.title){ %>
-                <a href="<%= news.yesterday.url %>">Link</a>
-                <h4><%= news.yesterday.title %></h4>
-                <p><%= news.yesterday.description %></p>
-                <% } else { %>
-                <p>No yesterday news</p>
-                <% } %>
+                    <div class="yesterday-news">
+                        <img src="<%- news.urlToImage %>" alt="image">
+                        <% if(news && news.yesterday && news.yesterday.title){ %>
+                        <h4><%= news.yesterday.title %></h4>
+                        <p><%= news.yesterday.description %></p>
+                        <a href="<%= news.yesterday.url %>">Read More</a>
+                        <% } else { %>
+                        <p>No yesterday news</p>
+                        <% } %>
+                    </div>
             </div>
+
+            <div class="weeks-ago">
             <div>
-                <h4>Week Ago</h4>
-                <% if(news && news.week && news.week.title){ %>
-                <a href="<%= news.week.url %>">Link</a>
-                <h4><%= news.week.title %></h4>
-                <p><%= news.week.description %></p>
-                <% } else { %>
-                <p>No week ago news</p>
-                <% } %>
+                <h4>One Week Ago</h4>
+                    <div>
+                        <img src="<%= news.urlToImage %>" alt="image">
+                        <% if(news && news.week && news.week.title){ %>
+                        <h4><%= news.week.title %></h4>
+                        <p><%= news.week.description %></p>
+                        <a href="<%= news.week.url %>">Read more</a>
+                        <% } else { %>
+                        <p>No week ago news</p>
+                        <% } %>
+                    </div>
             </div>
+
             <div>
-                <h4>Two Week Ago</h4>
-                <% if(news && news.twoWeek && news.twoWeek.title){ %>
-                <a href="<%= news.twoWeek.url %>">Link</a>
-                <h4><%= news.twoWeek.title %></h4>
-                <p><%= news.twoWeek.description %></p>
-                <% } else { %>
-                <p>Two Week Ago news</p>
-                <% } %>
+                <h4>Two Weeks Ago</h4>
+                    <div>
+                        <img src="<%- news.urlToImage %>" alt="image">
+                        <% if(news && news.twoWeek && news.twoWeek.title){ %>
+                        <h4><%= news.twoWeek.title %></h4>
+                        <p><%= news.twoWeek.description %></p>
+                        <a href="<%= news.twoWeek.url %>">Read more</a>
+                        <% } else { %>
+                        <p>Two Week Ago news</p>
+                        <% } %>
+                    </div>
             </div>
         </div>
+        </div>
+
         <% } %>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous">
+
+    </script>
 </body>
 
 </html>
