@@ -27,9 +27,16 @@ jobs:
         node-version: ${{ matrix.node-version }}
         
     - name: Install
-      working-directory: ./PROJECT
       run: npm install
       
     - name: Test
-      working-directory: ./PROJECT
       run: npm test
+      
+    - name: Deploy to Heroku
+      env:
+        HEROKU_API_TOKEN: ${{ secrets.HEROKU_API_KEY }}
+      if: github.ref == 'ref/heads/master' && job.status == 'success' #only run when test is passed
+      run:  |
+        git remote add heroku https://heroku:$HEROKU_API_TOKEN@git.heroku.com/group4-weatherly-app.git
+        git push heroku HEAD:master -f
+      
