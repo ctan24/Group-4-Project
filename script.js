@@ -252,5 +252,6 @@ const server = app.listen(port, function() {
 
 module.exports = {
     server,
-    extractSingleNewsFromResponse
+    extractSingleNewsFromResponse,
+    getLocation
 };

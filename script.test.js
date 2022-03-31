@@ -1,4 +1,5 @@
 const request = require('supertest');
+const { getLocation } = require('./script');
 let server;
 let extractSingleNewsFromResponseFunction;
 
@@ -56,3 +57,16 @@ describe("Integration Test with keyword Vancouver", () => {
         expect(response.statusCode).toBe(200);
     })
 })
+
+// More unit tests
+
+describe("Invalid Entry", () => {
+    test("if app displays error when user enters invalid countries / mispelled", () => {
+        const t = () => {
+            getLocation("xx");
+        };
+        expect(t).toThrow("NOT_FOUND_ERROR");
+    })
+})
+
+

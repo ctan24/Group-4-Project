@@ -17,7 +17,7 @@ Weatherly is a web application that suits all your needs regarding the weather. 
    3. News api: https://newsapi.org/v2/everything?q=tesla&from=2022-01-05&sortBy=publishedAt&apiKey=API_KEY from newapi.org
         a) displays its keyword(from the google map, default:vancouver)
         b) recent news
-        c) oldest news from the past 7 days. 
+        c) oldest news from the past 7 days.. 
 
 # WBS graph:
 ![wbs](docs/images/wbs.png)
