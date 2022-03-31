@@ -1,11 +1,11 @@
 const request = require('supertest');
-const { getLocation } = require('./script');
 let server;
 let extractSingleNewsFromResponseFunction;
 let pipeResponseWithWeatherFunction;
 let getFormattedDateFunction;
 let formatAMPMFunction;
-let formatDateForNewsApiFunction
+let formatDateForNewsApiFunction;
+let getLocation;
 
 function setup() {
     server = require('./script').server;
@@ -14,6 +14,7 @@ function setup() {
     getFormattedDateFunction = require('./script').getFormattedDate;
     formatAMPMFunction = require('./script').formatAMPM;
     formatDateForNewsApiFunction = require('./script').formatDateForNewsApi;
+    getLocation = require('./script').getLocation;
 }   
 
 function teardown() {
@@ -55,6 +56,29 @@ describe("Unit Test, testgetFormattedDate", () => {
     
         let actualTime = getFormattedDateFunction(mockTime);
         expect(actualTime).toStrictEqual(expectedTime);
+    })
+})
+
+describe("Unit Test, tesGetLoc", () => {
+    test("Expect Error when input is empty", () => {
+        const emptyLoc = " ";
+        let loc = getLocation(emptyLoc);
+        expect(() => loc.toThrow("NOT_FOUND_ERROR"));
+
+    })
+})
+
+describe("Unit Test, tesGetLoc", () => {
+    test("empty entry should throw an error", () => {
+        const emptyLoc = " ";
+        let loc = getLocation(emptyLoc);
+        expect(() => loc.toThrow("NOT_FOUND_ERROR"));
+    })
+
+    test("invalid entry should throw an error", () => {
+        const emptyLoc = "Vancouvertadia";
+        let loc = getLocation(emptyLoc);
+        expect(() => loc.toThrow("NOT_FOUND_ERROR"));
     })
 })
 
@@ -108,26 +132,37 @@ describe("Integration Test with keyword Vancouver", () => {
             .post('/')
             .type('form')
             .send({city: "Vancouver"})
-
         expect(response.statusCode).toBe(200);
     })
-<<<<<<< HEAD
 })
 
-// More unit tests
+describe("Integration Test with mispelled city", () => {
+    test("if it still respond if there is 1 missing letter in the city", async() =>{
+        const response = await request(server)
+            .post('/')
+            .type('form')
+            .send({city: "Manil"})
+        expect(response.statusCode).toBe(200);
+    })
 
-describe("Invalid Entry", () => {
-    test("if app displays error when user enters invalid countries / mispelled", () => {
-        const t = () => {
-            getLocation("xx");
-        };
-        expect(t).toThrow("NOT_FOUND_ERROR");
+    test("if it still respond if city has mixed up letters", async() =>{
+        const response = await request(server)
+            .post('/')
+            .type('form')
+            .send({city: "Torotno"})
+        expect(response.statusCode).toBe(200);
+    })
+})
+
+describe("Integration Test for current, hourly and daily weather features", () => {
+    test("if it still respond if there is 1 missing letter in the city", async() =>{
+        const response = await request(server)
+            .post('/')
+            .type('form')
+            .send({city: "Manil"})
+            
+        expect(response.statusType).toStrictEqual('OK');
     })
 })
 
 
-=======
-
-
-})
->>>>>>> d741475372bc44930c0316cb2f704d04ee8ddead

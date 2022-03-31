@@ -256,12 +256,9 @@ const server = app.listen(port, function() {
 module.exports = {
     server,
     extractSingleNewsFromResponse,
-<<<<<<< HEAD
-    getLocation
-=======
     pipeResponseWithWeather,
     getFormattedDate,
     formatAMPM,
-    formatDateForNewsApi
->>>>>>> d741475372bc44930c0316cb2f704d04ee8ddead
+    formatDateForNewsApi,
+    getLocation
 };
