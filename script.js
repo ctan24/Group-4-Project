@@ -118,8 +118,9 @@ function renderErrorPage(error, res) {
 
 function getFormattedDate(time) {
     let formattedTime = new Date(0);
-    formattedTime.setUTCSeconds(time);
+    formattedTime.setUTCMilliseconds(time);
     formattedTime = formatAMPM(formattedTime);
+    console.log("formattedTime: ", formattedTime)
     return formattedTime;
 }
 
@@ -144,12 +145,14 @@ function getLocation(city) {
 }
 
 function pipeResponseWithWeather(prevResponse) {
+    console.log("prevResponse: ", prevResponse)
     let part = "minutely"
     let formatted_address = prevResponse.formatted_address;
     let lat = prevResponse.latLon.lat;
     let lon = prevResponse.latLon.lng;
     let api = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=${part}&units=metric&appid=${apiKey}`;
     return axios.get(api).then(function(response){
+        console.log("response: ", response)
         console.log("in pipeResponseWithWeather success")
         let data = response.data;
         return {
@@ -252,5 +255,9 @@ const server = app.listen(port, function() {
 
 module.exports = {
     server,
-    extractSingleNewsFromResponse
+    extractSingleNewsFromResponse,
+    pipeResponseWithWeather,
+    getFormattedDate,
+    formatAMPM,
+    formatDateForNewsApi
 };
