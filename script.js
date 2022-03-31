@@ -6,6 +6,7 @@ const axios = require('axios');
 const NewsAPI = require('newsapi');
 const port = process.env.PORT || 8080;
 
+
 // Configure dotenv package
 
 require('dotenv').config();
@@ -123,6 +124,7 @@ function getFormattedDate(time) {
     return formattedTime;
 }
 
+
 function getLocation(city) {
     let api = `https://maps.googleapis.com/maps/api/geocode/json?address=${city}&key=${googleAPIKey}`;
     let data = {};
@@ -131,7 +133,8 @@ function getLocation(city) {
         if (response.data.status !== 'ZERO_RESULTS') {
             data.formatted_address = response.data.results[0].formatted_address;
             data.latLon = response.data.results[0].geometry.location;
-            return data;    
+            return data;
+
         } else {
             console.log("No location in getLocation")
             throw new Error("NOT_FOUND_ERROR");
@@ -187,8 +190,8 @@ function pipeResponseWithNews(prevResponse, keyword) {
 
     let reqArr = [
         newsapi.v2.everything({q: keyword, from: yesterday, to: toDate, language: 'en', sortBy: 'popularity', page: 1}),
-        newsapi.v2.everything({q: keyword, from: weekAgoDate, to: toDate, language: 'en', sortBy: 'popularity', page: 1}),
-        newsapi.v2.everything({q: keyword, from: twoWeekAgoDate, to: toDate, language: 'en', sortBy: 'popularity', page: 1})
+        newsapi.v2.everything({q: keyword, from: weekAgoDate, to: toDate, language: 'en', sortBy: 'popularity', page: 2}),
+        newsapi.v2.everything({q: keyword, from: twoWeekAgoDate, to: toDate, language: 'en', sortBy: 'popularity', page: 3})
     ]
 
     return Promise.all(reqArr)
