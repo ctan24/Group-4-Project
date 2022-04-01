@@ -146,7 +146,6 @@
             <div class="yesterday">
                 <h3>Yesterday</h3>
                     <div class="yesterday-news">
-                        <img src="<%- news.urlToImage %>" alt="image">
                         <% if(news && news.yesterday && news.yesterday.title){ %>
                         <h4><%= news.yesterday.title %></h4>
                         <p><%= news.yesterday.description %></p>
@@ -161,7 +160,6 @@
             <div>
                 <h4>One Week Ago</h4>
                     <div>
-                        <img src="<%= news.urlToImage %>" alt="image">
                         <% if(news && news.week && news.week.title){ %>
                         <h4><%= news.week.title %></h4>
                         <p><%= news.week.description %></p>
@@ -175,7 +173,6 @@
             <div>
                 <h4>Two Weeks Ago</h4>
                     <div>
-                        <img src="<%- news.urlToImage %>" alt="image">
                         <% if(news && news.twoWeek && news.twoWeek.title){ %>
                         <h4><%= news.twoWeek.title %></h4>
                         <p><%= news.twoWeek.description %></p>
