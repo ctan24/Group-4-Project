@@ -14,9 +14,7 @@ require('dotenv').config();
 
 const apiKey = `${process.env.API_KEY}`;
 const googleAPIKey = `${process.env.google_API_KEY}`
-const Kelvin = 273.15
 
-const MAX_NUM_NEWS = 1;
 const NEWS_API_KEY = `${process.env.NEWS_API_KEY}`
 const newsapi = new NewsAPI(NEWS_API_KEY);
 
@@ -28,15 +26,14 @@ app.set('view engine', 'ejs');
 
 // Setup our default display on launch
 app.get('/', function(req, res) {
-    console.log("in get /")
+
     // It shall not fetch and display any data in the index page
     res.status(200).render('index', { response: null, error: null });
 });
 
 // On a post request, the app shall data from OpenWeatherMap using the given arguments
 app.post('/', function(req, res) {
-    console.log("in post /")
-    console.log(req.body);
+
     // Get city name passed in the form
     let city = req.body.city;
     getLocation(city)
@@ -47,8 +44,7 @@ app.post('/', function(req, res) {
 })
 
 function renderPageWithResponseFromApis(response, res) {
-    console.log("in renderPageWithResponseFromApis")
-    // console.log(response);
+
 
     // we shall use the data got to set up our output
     let place = `${response.formatted_address}`,
@@ -63,6 +59,7 @@ function renderPageWithResponseFromApis(response, res) {
         secondHourly = `${response.hourly[1].dt}`,
         thirdHourly = `${response.hourly[2].dt}`,
         news = response.news;
+   
 
     // We shall also round off the value of the degrees fahrenheit calculated into two decimal places
     function roundToOne(num) {
@@ -74,6 +71,7 @@ function renderPageWithResponseFromApis(response, res) {
     let currentPlusOne = getFormattedDate(firstHourly);
     let currentPlusTwo = getFormattedDate(secondHourly);
     let currentPlusThree = getFormattedDate(thirdHourly);
+
 
     weatherPlusOne = `${response.hourly[0].temp}`;
     hourlyWeatherOne = roundToOne(weatherPlusOne);
@@ -118,21 +116,26 @@ function renderErrorPage(error, res) {
 
 function getFormattedDate(time) {
     let formattedTime = new Date(0);
-    formattedTime.setUTCMilliseconds(time);
+
+    formattedTime.setUTCSeconds(time);
+
     formattedTime = formatAMPM(formattedTime);
-    console.log("formattedTime: ", formattedTime)
+
     return formattedTime;
 }
 
 function getLocation(city) {
+
     let api = `https://maps.googleapis.com/maps/api/geocode/json?address=${city}&key=${googleAPIKey}`;
+
     let data = {};
     return axios.get(api).then(function(response) {
-        console.log("IN getLocation success")
         if (response.data.status !== 'ZERO_RESULTS') {
             data.formatted_address = response.data.results[0].formatted_address;
             data.latLon = response.data.results[0].geometry.location;
-            return data;    
+
+            return data;
+                
         } else {
             console.log("No location in getLocation")
             throw new Error("NOT_FOUND_ERROR");
@@ -145,15 +148,14 @@ function getLocation(city) {
 }
 
 function pipeResponseWithWeather(prevResponse) {
-    console.log("prevResponse: ", prevResponse)
+ 
     let part = "minutely"
     let formatted_address = prevResponse.formatted_address;
     let lat = prevResponse.latLon.lat;
     let lon = prevResponse.latLon.lng;
     let api = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=${part}&units=metric&appid=${apiKey}`;
     return axios.get(api).then(function(response){
-        console.log("response: ", response)
-        console.log("in pipeResponseWithWeather success")
+
         let data = response.data;
         return {
             ...data,
@@ -196,8 +198,7 @@ function pipeResponseWithNews(prevResponse, keyword) {
 
     return Promise.all(reqArr)
         .then(axios.spread((...responses) => {
-            console.log("in pipeResponseWithNews success")
-            console.log(keyword);
+
             let yesterdayNewsResponse = responses[0];
             let weekAgoNewsResponse = responses[1];
             let twoWeekAgoNewsResponse = responses[2];
