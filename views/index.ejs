@@ -37,7 +37,8 @@
                     </p>
                     <p id="current_date"></p>
                     <script>
-                    document.getElementById("current_date").innerHTML = Date();
+                        let date = new Date();
+                    document.getElementById("current_date").innerHTML = date.toDateString();
                     </script>
                 </div>
             </div>
@@ -147,6 +148,7 @@
                 <h3>Yesterday</h3>
                     <div class="yesterday-news">
                         <% if(news && news.yesterday && news.yesterday.title){ %>
+                            <img src="<%= news.yesterday.urlToImage %>" alt="yesterdayNewsImage">
                         <h4><%= news.yesterday.title %></h4>
                         <p><%= news.yesterday.description %></p>
                         <a href="<%= news.yesterday.url %>">Read More</a>
@@ -161,6 +163,7 @@
                 <h4>One Week Ago</h4>
                     <div>
                         <% if(news && news.week && news.week.title){ %>
+                        <img src="<%= news.week.urlToImage %>" alt="weekNewsImage">
                         <h4><%= news.week.title %></h4>
                         <p><%= news.week.description %></p>
                         <a href="<%= news.week.url %>">Read more</a>
@@ -170,10 +173,11 @@
                     </div>
             </div>
 
-            <div>
+            <div class="twoWeeks">
                 <h4>Two Weeks Ago</h4>
                     <div>
                         <% if(news && news.twoWeek && news.twoWeek.title){ %>
+                        <img src="<%= news.twoWeek.urlToImage %>" alt="twoWeekNewsImg">
                         <h4><%= news.twoWeek.title %></h4>
                         <p><%= news.twoWeek.description %></p>
                         <a href="<%= news.twoWeek.url %>">Read more</a>

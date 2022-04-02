@@ -191,9 +191,9 @@ function pipeResponseWithNews(prevResponse, keyword) {
     twoWeekAgoDate = formatDateForNewsApi(twoWeekAgoDate);
 
     let reqArr = [
-        newsapi.v2.everything({q: keyword + " weather", from: yesterday, to: toDate, language: 'en', sortBy: 'popularity', page: 1}),
-        newsapi.v2.everything({q: keyword + " weather", from: weekAgoDate, to: toDate, language: 'en', sortBy: 'popularity', page: 1}),
-        newsapi.v2.everything({q: keyword + " weather", from: twoWeekAgoDate, to: toDate, language: 'en', sortBy: 'popularity', page: 1})
+        newsapi.v2.everything({q: keyword + " weather", from: yesterday, to: toDate, language: 'en', sortBy: 'relevancy', page: 1}),
+        newsapi.v2.everything({q: keyword + " weather", from: weekAgoDate, to: toDate, language: 'en', sortBy: 'relevancy', page: 2}),
+        newsapi.v2.everything({q: keyword + " weather", from: twoWeekAgoDate, to: toDate, language: 'en', sortBy: 'relevancy', page: 1})
     ]
 
     return Promise.all(reqArr)

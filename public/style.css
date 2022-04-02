@@ -159,3 +159,13 @@ a:hover {
     font-size: 20px;
     font-weight: 600;
 }
+
+.twoWeeks img, .weeks-ago img {
+    width: 500px;
+    height: 300px;
+}
+
+.yesterday img {
+    width: 700px;
+    height: 400px;
+}
