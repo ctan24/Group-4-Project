@@ -6,6 +6,7 @@ https://group4-weatherly-app.herokuapp.com/
 
 
 - SDLC : Prototyping
+Prototyping is an information-gathering technique useful in seeking user reactions, suggestions, innovations, and revision plans. The main goal of this SDLC is to create a working model that has all the features to allow the users to interact with the system. The specific prototype model we chose is a selected features prototype. This model aims to implement the features one at a time, and the following features will be built on top of the created prototype. Successful prototypes created with this model in mind are not just a mock-up that is used to test its features, but will be incorporated into the final system, reducing the workload of interfacing.
 
 - Project's Technology Stack : HTML, CSS, JAVASCRIPT, NODEJS
 
@@ -26,6 +27,8 @@ https://group4-weatherly-app.herokuapp.com/
 	
 	Heroku:
 	Allows the GitHub repository to connect to Heroku and deploy the application
-
+	
+- High-Level Data Flow Diagram
+![dfd](docs/images/highleveldiagram.png)
 
 
