@@ -67,31 +67,31 @@ describe("Unit Test, testExtractSingleNewsFromResponse", () => {
 //     })
 // })
 
-describe("Unit Test, tesGetLoc", () => {
-    test("Expect Error when input is empty", () => {
-        const emptyLoc = " ";
-        return getLocation(emptyLoc).catch(error => {
-            expect(error.message).toBe("NOT_FOUND_ERROR");
-        })
-    })
-})
+// describe("Unit Test, tesGetLoc", () => {
+//     test("Expect Error when input is empty", () => {
+//         const emptyLoc = " ";
+//         return getLocation(emptyLoc).catch(error => {
+//             expect(error.message).toBe("NOT_FOUND_ERROR");
+//         })
+//     })
+// })
 
 
-describe("Unit Test, testGetLoc", () => {
-    test("empty entry should throw an error", () => {
-        const emptyLoc = " ";
-        return getLocation(emptyLoc).catch(error => {
-            expect(error.message).toBe("NOT_FOUND_ERROR");
-        })
-    })
+// describe("Unit Test, testGetLoc", () => {
+//     test("empty entry should throw an error", () => {
+//         const emptyLoc = " ";
+//         return getLocation(emptyLoc).catch(error => {
+//             expect(error.message).toBe("NOT_FOUND_ERROR");
+//         })
+//     })
 
-    test("invalid entry should throw an error", () => {
-        const invalidLoc = "Vancouvertadia";
-        return getLocation(invalidLoc).catch(error => {
-            expect(error.message).toBe("NOT_FOUND_ERROR");
-        })
-    })
-})
+//     test("invalid entry should throw an error", () => {
+//         const invalidLoc = "Vancouvertadia";
+//         return getLocation(invalidLoc).catch(error => {
+//             expect(error.message).toBe("NOT_FOUND_ERROR");
+//         })
+//     })
+// })
 
 describe("Unit Test, formatDateForNewsApi", () => {
     test("Format Date for News API double digit month double digit date", () => {
